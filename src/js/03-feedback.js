@@ -20,19 +20,26 @@ function onInputForm(e) {
 
 function onSubmitForm(e) {
   e.preventDefault();
+  if (refs.inputEmail.value && refs.inputMessage.value) {
+    e.currentTarget.reset();
+    console.log(saveForm);
+    localStorage.removeItem('feedback-form-state');
+  } else {
+     alert('all fields must be filled !!!');
+  }
 
-  e.currentTarget.reset();
-  console.log(saveForm);
-  localStorage.removeItem('feedback-form-state');
 }
 
 function showSavedForm() {
   const savedForm = JSON.parse(localStorage.getItem('feedback-form-state'));
-    if (savedForm !== null) {
-      refs.inputEmail.value = savedForm.email;
-      refs.inputMessage.value = savedForm.message;
-    }
+  
+  if (savedForm.email) {
+    refs.inputEmail.value = savedForm.email;
+  }
+  if (savedForm.message) {
+    refs.inputMessage.value = savedForm.message;
+  }
     
- 
+
 
 }
