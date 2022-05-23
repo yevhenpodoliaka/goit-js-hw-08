@@ -9,8 +9,8 @@ refs.form.addEventListener('submit', onSubmitForm);
 
 showSavedForm();
 function onInputForm() {
-   inputEmail = refs.form.elements.email.value;
-   inputMessage = refs.form.elements.message.value;
+  const inputEmail = refs.form.elements.email.value;
+  const inputMessage = refs.form.elements.message.value;
   localStorage.setItem(
     'feedback-form-state',
     JSON.stringify({ email: inputEmail, message: inputMessage }),
